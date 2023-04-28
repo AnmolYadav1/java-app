@@ -50,18 +50,18 @@ pipeline {
             steps {
                 script {
                    nexusArtifactUploader 
-                    artifacts:
-                       [[artifactId: 'springboot', 
-                       classifier: '', 
-                       file: 'target/UPES.jar', 
-                       type: 'jar']],
-                       credentialsId: '',
-                       groupId: 'com.example',
-                       nexusUrl: '13.232.154.236:8081', 
-                       nexusVersion: 'nexus3', 
-                       protocol: 'http',
-                       repository: 'java-release', 
-                       version: '1.0.0'
+                    artifacts: 
+                        [[artifactId: 'springboot', 
+                          classifier: '', 
+                          file: 'target/UPES.jar',
+                          type: 'jar']],
+                          credentialsId: 'nexusid', 
+                        groupId: 'com.example', 
+                        nexusUrl: '13.232.154.236:8081', 
+                        nexusVersion: 'nexus3',
+                        protocol: 'http', 
+                        repository: 'java-release', 
+                        version: '1.0.0'
                 }
             }
         }
