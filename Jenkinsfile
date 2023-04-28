@@ -1,4 +1,3 @@
-
 pipeline {
 
     agent any
@@ -26,6 +25,16 @@ pipeline {
         stage("Build"){
             steps {
                 sh 'mvn clean install'
+            }
+        }
+
+        stage("Static Code Analysis"){
+            steps {
+                script {
+                    withSonarQubeEnv(credentialsId: 'sonarqube') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
             }
         }
     }
